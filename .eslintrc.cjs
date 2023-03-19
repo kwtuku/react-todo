@@ -6,6 +6,8 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:import/recommended',
+    'plugin:import/typescript',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
@@ -17,8 +19,20 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  rules: {},
+  rules: {
+    'import/order': [
+      'error',
+      {
+        alphabetize: { order: 'asc' },
+        warnOnUnassignedImports: true,
+      },
+    ],
+  },
   settings: {
+    'import/resolver': {
+      typescript: true,
+      node: true,
+    },
     react: {
       version: 'detect',
     },
