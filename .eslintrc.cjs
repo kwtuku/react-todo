@@ -18,4 +18,9 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {},
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
 }
