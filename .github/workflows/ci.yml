@@ -23,6 +23,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - run: exit 1
+
       - name: Run ESLint
         run: exit 0
         id: run-eslint
