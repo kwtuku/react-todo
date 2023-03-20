@@ -25,7 +25,7 @@ jobs:
 
       - name: Run ESLint
         run: npx eslint .
-        continue-on-error: true
 
       - name: Run Prettier
         run: npx prettier --check .
+        if: success() || failure()
