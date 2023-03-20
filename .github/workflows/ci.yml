@@ -24,6 +24,7 @@ jobs:
         run: npm ci
 
       - run: exit 1
+        id: failure-step
 
       - name: Run ESLint
         run: exit 0
@@ -32,3 +33,6 @@ jobs:
       - name: Run Prettier
         run: npx prettier --check .
         if: steps.run-eslint.outcome == 'success' || failure() && steps.run-eslint.outcome == 'failure'
+
+      - run: exit 0
+        if: failure() && steps.failure-step.outcome == 'failure'
