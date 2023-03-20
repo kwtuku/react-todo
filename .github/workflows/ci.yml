@@ -24,6 +24,8 @@ jobs:
         run: npm ci
 
       - run: exit 1
+
+      - run: exit 1
         id: failure-step
 
       - name: Run ESLint
